@@ -13,7 +13,7 @@ export default function App() {
   const apiCall = () => {
     try {
       const parsedData = JSON.parse(jsonData);
-      axios.post('https://bajaj-finserv-task-21-bce-3363.vercel.app/endpoint', {
+      axios.post('https://bajaj-finserv-task-21-bce-3363.vercel.app/bfhl', {
         data: parsedData.data,
         user_id: userId,
         email: email,
@@ -22,7 +22,7 @@ export default function App() {
         setResponseData(response.data);
       }).catch((error) => {
         console.error('Error in API call:', error);
-        alert('There was an error processing your request.');
+        alert('There was an error processing your request. Please try again.');
       });
     } catch (e) {
       alert('Invalid JSON format. Please check your input.');
