@@ -13,19 +13,18 @@ export default function App() {
   const apiCall = () => {
     try {
       const parsedData = JSON.parse(jsonData);
-      axios.post('https://bajaj-finserv-task-21-bce-3363.vercel.app/endpoint', {
+      axios.post('http://localhost:8080/bfhl', {
         data: parsedData.data,
         user_id: userId,
         email: email,
         roll_number: rollNumber
       }).then((response) => {
-        setResponseData(response.data);
-      }).catch((error) => {
-        console.error('Error in API call:', error);
-        alert('There was an error processing your request.');
-      });
+          setResponseData(response.data);
+        }).catch((error) => {
+          console.error('Error in API call:', error);
+        });
     } catch (e) {
-      alert('Invalid JSON format. Please check your input.');
+      alert('Invalid JSON');
     }
   };
 
@@ -87,10 +86,7 @@ export default function App() {
         </select>
         {renderResponse()}
         <br />
-        <button 
-          onClick={() => window.location.href = 'https://github.com/your-repository-link'} 
-          className="repo-button"
-        >
+        <button onClick={() => window.location.href = 'https://github.com/your-repository-link'} className="repo-button">
           Go to My Repository
         </button>
       </header>
