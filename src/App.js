@@ -19,12 +19,13 @@ export default function App() {
         email: email,
         roll_number: rollNumber
       }).then((response) => {
-          setResponseData(response.data);
-        }).catch((error) => {
-          console.error('Error in API call:', error);
-        });
+        setResponseData(response.data);
+      }).catch((error) => {
+        console.error('Error in API call:', error);
+        alert('There was an error processing your request.');
+      });
     } catch (e) {
-      alert('Invalid JSON');
+      alert('Invalid JSON format. Please check your input.');
     }
   };
 
@@ -86,7 +87,10 @@ export default function App() {
         </select>
         {renderResponse()}
         <br />
-        <button onClick={() => window.location.href = 'https://github.com/your-repository-link'} className="repo-button">
+        <button 
+          onClick={() => window.location.href = 'https://github.com/your-repository-link'} 
+          className="repo-button"
+        >
           Go to My Repository
         </button>
       </header>
