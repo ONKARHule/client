@@ -13,7 +13,7 @@ export default function App() {
   const apiCall = () => {
     try {
       const parsedData = JSON.parse(jsonData);
-      axios.post('https://bajaj-finserv-task-21-bce-3363.vercel.app/bfhl', {
+      axios.post('https://bajaj-finserv-task-21-bce-3363.vercel.app/', {
         data: parsedData.data,
         user_id: userId,
         email: email,
